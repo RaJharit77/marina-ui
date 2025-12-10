@@ -65,8 +65,9 @@ value of `c` has no effect on the satisfiability of the whole proposition.
 
 ## Acknowledgment
 
-## The deployment link 
-Link: https://marina-solver-sat-ui-rj.vercel.app
-
 Underlying decision procedure is based on IF-expression normalization:
 https://usr.lmf.cnrs.fr/~jcf/ftp/tp-info/IFexpressions.pdf
+
+## The deployment link 
+
+Link: https://marina-solver-sat-ui-rj.vercel.app
