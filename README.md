@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# marina
+Yet another SAT solver in Ocaml, _marina_ being the Malagasy word for _True_.
 
-## Getting Started
+## Practical example
 
-First, run the development server:
+_Marina ve fa misy ny zazavavindrano?_
+Is it true that Zazavavindrano (mermaids) exist?
+The following assumptions were gathered across the Malagasy folklore:
+* Zazavavindrano who don't swim in warm sea have red stripes
+* Zazavavindrano either have blue stripes or does not have red stripes
+* Zazavavindrano who live in the corals don't eat shrimps
+* A zazavavindrano eats shrimps if and only if she swims in warm sea
+* Zazavavindrano who have blue stripes swim in warm sea and live in the corals
+* Zazavavindrano who swim in warm sea have blue stripes
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+$ ./marina 'zazavavindrano & zazavavindrano -> 
+          ( (~ swim_warm -> red)
+          & (blue | ~ red)
+          & (live_corals -> ~ eat_shrimps)
+          & (eat_shrimps <-> swim_warm)
+          & (blue -> (swim_warm & live_corals))
+          & (swim_warm -> blue) )'
+> (,false)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Syntax
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Invoke `./marina '<prop>'` such that `<prop>` is
+in the following Backus Normal Form:
+```
+<prop> ::=  T
+          | F
+          | <atom>
+          | ~ <prop>
+          | <prop> & <prop>
+          | <prop> | <prop>
+          | <prop> -> <prop>
+          | <prop> <-> <prop>
+          | (<prop>)
+<atom> ::= ^[a-z_]+[0-9]*$
+```
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Ocaml dependencies
 
-## Learn More
+```
+$ apt install ocaml opam
+$ opam install ocamlfind ounit2
+```
 
-To learn more about Next.js, take a look at the following resources:
+Depending on you Operating System, the installation of `ocaml` and `opam` might differ:
+see https://ocaml.org/docs/install.html.
+The CI executes tests for MacOS and Ubuntu.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Building marina
+```
+$ make
+$ ./marina '(a&b | c)->d  <->  ~e'
+(a,true) (b,true) (d,true) (e,false)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Notice that provided assignement is _partial_:
+value of `c` has no effect on the satisfiability of the whole proposition.
 
-## Deploy on Vercel
+## Acknowledgment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## The deployment link 
+Link: https://marina-solver-sat-ui-rj.vercel.app
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Underlying decision procedure is based on IF-expression normalization:
+https://usr.lmf.cnrs.fr/~jcf/ftp/tp-info/IFexpressions.pdf
