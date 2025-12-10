@@ -1,6 +1,6 @@
 'use client'
 
-import { BookOpen, Zap, Lightbulb, Sparkles, Clipboard } from 'lucide-react'
+import { BookOpen, Zap, Lightbulb, Sparkles, Clipboard, Check } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
@@ -34,7 +34,7 @@ const examples: Example[] = [
     {
         name: 'De Morgan',
         formula: '~(a & b) <-> (~a | ~b)',
-        description: 'De Morgan\'s law example',
+        description: 'De Morgan&apos;s law example',
         icon: <BookOpen className="h-5 w-5" />
     },
     {
@@ -68,13 +68,10 @@ export default function ExamplesPanel({ onSelectExample }: ExamplesPanelProps) {
         
         // Montrer une notification
         toast.success(`Loaded: ${example.name}`)
-        
-        // Animation de feedback
-        setCopiedIndex(index)
-        setTimeout(() => setCopiedIndex(null), 2000)
     }
 
-    const copyToClipboard = (formula: string, name: string, index: number) => {
+    const copyToClipboard = (formula: string, name: string, index: number, e: React.MouseEvent) => {
+        e.stopPropagation()
         navigator.clipboard.writeText(formula)
         setCopiedIndex(index)
         setTimeout(() => setCopiedIndex(null), 2000)
@@ -116,16 +113,17 @@ export default function ExamplesPanel({ onSelectExample }: ExamplesPanelProps) {
                             <div className="p-2 bg-linear-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-lg">
                                 {example.icon}
                             </div>
-                            <div className="flex space-x-1">
+                            <div className="flex items-center space-x-2">
                                 <button
-                                    onClick={(e) => {
-                                        e.stopPropagation()
-                                        copyToClipboard(example.formula, example.name, index)
-                                    }}
-                                    className="p-1 text-gray-500 hover:text-primary-500 transition-colors"
+                                    onClick={(e) => copyToClipboard(example.formula, example.name, index, e)}
+                                    className="p-1 text-gray-500 hover:text-primary-500 transition-colors relative"
                                     title="Copy to clipboard"
                                 >
-                                    <Clipboard className="h-4 w-4" />
+                                    {copiedIndex === index ? (
+                                        <Check className="h-4 w-4 text-green-500" />
+                                    ) : (
+                                        <Clipboard className="h-4 w-4" />
+                                    )}
                                 </button>
                                 <span className="text-xs font-semibold px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">
                                     {activeIndex === index ? 'Loaded' : 'Click'}
@@ -137,6 +135,15 @@ export default function ExamplesPanel({ onSelectExample }: ExamplesPanelProps) {
                         <div className="font-mono text-xs bg-gray-50 dark:bg-gray-800 p-2 rounded break-all">
                             {example.formula}
                         </div>
+                        {copiedIndex === index && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                className="text-xs text-green-500 mt-2 text-right"
+                            >
+                                ✓ Copied to clipboard
+                            </motion.div>
+                        )}
                     </motion.div>
                 ))}
             </div>
@@ -144,43 +151,54 @@ export default function ExamplesPanel({ onSelectExample }: ExamplesPanelProps) {
             <div className="mt-6 p-4 bg-linear-to-r from-gray-50 to-primary-50 dark:from-gray-800/50 dark:to-primary-900/20 rounded-lg">
                 <h4 className="font-bold mb-2 text-primary-700 dark:text-primary-300">Syntax Quick Reference</h4>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-sm">
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">&</span>
                         <span className="text-gray-500 ml-2">AND</span>
                     </div>
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">|</span>
                         <span className="text-gray-500 ml-2">OR</span>
                     </div>
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">~</span>
                         <span className="text-gray-500 ml-2">NOT</span>
                     </div>
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">-&gt;</span>
                         <span className="text-gray-500 ml-2">IMPLY</span>
                     </div>
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">&lt;-&gt;</span>
                         <span className="text-gray-500 ml-2">EQUIV</span>
                     </div>
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">T</span>
                         <span className="text-gray-500 ml-2">TRUE</span>
                     </div>
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">F</span>
                         <span className="text-gray-500 ml-2">FALSE</span>
                     </div>
-                    <div>
+                    <div className="flex items-center">
                         <span className="font-mono">a-z_0-9</span>
                         <span className="text-gray-500 ml-2">Variables</span>
                     </div>
                 </div>
             </div>
 
-            <div className="mt-4 text-xs text-gray-500 text-center">
-                <p>Click on any example to load it into the input field</p>
+            <div className="mt-6 flex items-center justify-between text-xs text-gray-500">
+                <div>
+                    <p className="flex items-center">
+                        <span className="inline-block w-3 h-3 bg-primary-500 rounded-full mr-2"></span>
+                        Active example loaded in input
+                    </p>
+                </div>
+                <div>
+                    <p className="flex items-center">
+                        <Check className="h-3 w-3 text-green-500 mr-1" />
+                        Formula copied to clipboard
+                    </p>
+                </div>
             </div>
         </motion.div>
     )

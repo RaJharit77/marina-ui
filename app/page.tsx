@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { solveSAT } from '@/lib/marinaClient'
 import HeroSection from '@/components/home/HeroSection'
@@ -18,7 +18,6 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false)
   const [currentFormula, setCurrentFormula] = useState('')
 
-  // Fonction pour charger un exemple dans l'input
   const handleSelectExample = (formula: string) => {
     setCurrentFormula(formula)
     toast.success('Example loaded! Click "Solve SAT" to test it.')

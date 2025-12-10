@@ -2,6 +2,7 @@
 
 import { Github, Heart } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function Footer() {
     const currentYear = new Date().getFullYear()
@@ -36,18 +37,18 @@ export default function Footer() {
                     >
                         <h4 className="font-bold text-lg">Quick Links</h4>
                         <div className="space-y-2">
-                            <a href="/" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                            <Link href="/" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
                                 Home
-                            </a>
-                            <a href="/about" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                            </Link>
+                            <Link href="/about" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
                                 About
-                            </a>
-                            <a href="/documentation" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                            </Link>
+                            <Link href="/documentation" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
                                 Documentation
-                            </a>
-                            <a href="#syntax" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                            </Link>
+                            <Link href="#syntax" className="block text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
                                 Syntax Guide
-                            </a>
+                            </Link>
                         </div>
                     </motion.div>
 

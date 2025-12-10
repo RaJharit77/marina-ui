@@ -129,11 +129,10 @@ export default function ResultDisplay({ result, error, formula }: ResultDisplayP
                                                 initial={{ scale: 0 }}
                                                 animate={{ scale: 1 }}
                                                 transition={{ delay: idx * 0.1 }}
-                                                className={`inline-flex items-center px-3 py-1 rounded-full ${
-                                                    value === 'true' 
-                                                        ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                                                        : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                                }`}
+                                                className={`inline-flex items-center px-3 py-1 rounded-full ${value === 'true'
+                                                    ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                                                    : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300'
+                                                    }`}
                                             >
                                                 <span className="font-bold">{varName}</span>
                                                 <span className="mx-1">=</span>
@@ -158,8 +157,8 @@ export default function ResultDisplay({ result, error, formula }: ResultDisplayP
                         <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
                             <h4 className="font-semibold mb-2 text-purple-700 dark:text-purple-300">Note</h4>
                             <p className="text-sm">
-                                Marina returns partial assignments. Missing variables don't affect satisfiability.
-                                Parentheses are required for complex expressions.
+                                Marina returns partial assignments.
+                                Missing variables don&apos;t affect satisfiability.
                             </p>
                         </div>
                     </div>

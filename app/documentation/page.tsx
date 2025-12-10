@@ -86,7 +86,7 @@ export default function DocumentationPage() {
                                     <ol>
                                         <li>Enter your boolean formula in the input field</li>
                                         <li>Use the buttons or type operators directly</li>
-                                        <li>Click "Solve SAT" to get the result</li>
+                                        <li>Click &quot;Solve SAT&quot; to get the result</li>
                                         <li>View the assignment or error message</li>
                                     </ol>
 

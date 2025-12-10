@@ -69,7 +69,7 @@ export default function SolverPage() {
                             </div>
                             <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
                                 <h4 className="font-bold mb-2 text-purple-700 dark:text-purple-300">Partial Assignments</h4>
-                                <p className="text-sm">Marina returns minimal assignments. Missing variables don't affect satisfiability.</p>
+                                <p className="text-sm">Marina returns minimal assignments. Missing variables don&apos;t affect satisfiability.</p>
                             </div>
                         </div>
                     </div>

@@ -120,8 +120,8 @@ export default function ExamplesPage() {
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-4 py-2 rounded-lg transition-colors ${selectedCategory === category
-                                        ? 'bg-primary-600 text-white'
-                                        : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                    ? 'bg-primary-600 text-white'
+                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                     }`}
                             >
                                 {category}
@@ -202,7 +202,7 @@ export default function ExamplesPage() {
                             <div className="font-mono text-lg mb-2">1</div>
                             <h4 className="font-bold mb-2">Copy Formula</h4>
                             <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Click the copy icon or "Use in Solver" button to copy the formula
+                                Click the copy icon or &quot;Use in Solver&quot; button to copy the formula
                             </p>
                         </div>
                         <div className="p-4 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
@@ -216,7 +216,7 @@ export default function ExamplesPage() {
                             <div className="font-mono text-lg mb-2">3</div>
                             <h4 className="font-bold mb-2">Paste & Solve</h4>
                             <p className="text-sm text-gray-600 dark:text-gray-400">
-                                Paste the formula in the solver and click "Solve SAT" to see the result
+                                Paste the formula in the solver and click &quot;Solve SAT&quot; to see the result
                             </p>
                         </div>
                     </div>

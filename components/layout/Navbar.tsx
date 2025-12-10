@@ -52,7 +52,6 @@ export default function Navbar() {
         <nav className="sticky top-0 z-50 glass border-b">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">
-                    {/* Logo */}
                     <div className="flex items-center space-x-3">
                         <Link href="/" className="flex items-center space-x-3">
                             <div className="p-2 bg-linear-to-br from-primary-500 to-secondary-500 rounded-lg">
@@ -65,7 +64,6 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-6">
                         {navItems.map((item) => (
                             <Link
@@ -91,7 +89,6 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Mobile Menu Button */}
                     <button
                         className="md:hidden p-2"
                         onClick={() => setIsOpen(!isOpen)}
@@ -101,7 +98,6 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile Navigation */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
