@@ -9,10 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -20,15 +16,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: "20"
           cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Run ESLint
-        run: npm run lint
-        continue-on-error: false # Fail si lint échoue
+        run: npx next lint || npx eslint . --ext .ts,.tsx,.js,.jsx
 
       - name: Build with Next.js
         run: npm run build
