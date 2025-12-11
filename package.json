@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "export": "next build && next export"
   },
   "dependencies": {
     "@types/gsap": "^1.20.2",
