@@ -62,7 +62,7 @@ export default function Footer() {
                         <h4 className="font-bold text-lg">Connect</h4>
                         <div className="space-y-2">
                             <a
-                                href="https://github.com/RaJharit77/marina-sat-solver"
+                                href="https://github.com/RaJharit77/marina-ui"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors"
