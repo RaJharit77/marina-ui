@@ -7,14 +7,14 @@ export default function AboutPage() {
     const team = [
         {
             name: 'RaJharit77',
-            role: 'Developer',
-            description: 'Creator of Marina SAT Solver',
+            role: 'Front-end Developer',
+            description: 'Creator of Marina SAT Solver Design',
             icon: <Code className="h-6 w-6" />
         },
         {
-            name: 'OCaml Community',
-            role: 'Contributors',
-            description: 'Open-source contributors',
+            name: 'Ocaml',
+            role: 'Source Code',
+            description: 'Open-source project',
             icon: <Users className="h-6 w-6" />
         }
     ]
