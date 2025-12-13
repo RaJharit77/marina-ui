@@ -100,7 +100,7 @@ export default function AboutPage() {
                         <h3 className="font-bold text-lg">Frontend</h3>
                         <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                             <li className="flex items-center space-x-2">
-                                <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                                <div className="w-2 h-2 bg-pink-500 rounded-full"></div>
                                 <span>Next.js 16 with App Router</span>
                             </li>
                             <li className="flex items-center space-x-2">
