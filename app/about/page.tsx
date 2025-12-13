@@ -107,6 +107,10 @@ export default function AboutPage() {
                                 <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
                                 <span>Tailwind CSS v4 for styling</span>
                             </li>
+                            <li className="flex items-center space-x-2">
+                                <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                                <span>Framer motion and GSAP for the animation</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
