@@ -79,7 +79,7 @@ export default function AboutPage() {
                         <h3 className="font-bold text-lg">Backend</h3>
                         <ul className="space-y-2 text-gray-600 dark:text-gray-400">
                             <li className="flex items-center space-x-2">
-                                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
                                 <span>OCaml - Functional programming language</span>
                             </li>
                             <li className="flex items-center space-x-2">
@@ -89,6 +89,10 @@ export default function AboutPage() {
                             <li className="flex items-center space-x-2">
                                 <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                                 <span>REST API with Flask</span>
+                            </li>
+                            <li className="flex items-center space-x-2">
+                                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                                <span>Docker for API containerization</span>
                             </li>
                         </ul>
                     </div>
@@ -104,7 +108,7 @@ export default function AboutPage() {
                                 <span>TypeScript for type safety</span>
                             </li>
                             <li className="flex items-center space-x-2">
-                                <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
+                                <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
                                 <span>Tailwind CSS v4 for styling</span>
                             </li>
                             <li className="flex items-center space-x-2">
