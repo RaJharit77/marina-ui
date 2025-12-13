@@ -86,14 +86,14 @@ export default function Footer() {
                         </div>
                         <div className="flex items-center space-x-4">
                             <span className="text-sm text-gray-500 dark:text-gray-400">
-                                Backend deployed on{' '}
+                                UI deployed on{' '}
                                 <a
-                                    href="https://render.com"
+                                    href="https://vercel.com"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-primary-500 hover:underline"
                                 >
-                                    Render
+                                    Vercel
                                 </a>
                             </span>
                             <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">
