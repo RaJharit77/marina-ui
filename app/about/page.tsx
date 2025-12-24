@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { url } from 'inspector'
 import { Brain, Code, Users, BookOpen } from 'lucide-react'
 
 export default function AboutPage() {
@@ -9,13 +10,15 @@ export default function AboutPage() {
             name: 'RaJharit77',
             role: 'Front-end Developer',
             description: 'Creator of Marina SAT Solver Design',
-            icon: <Code className="h-6 w-6" />
+            icon: <Code className="h-6 w-6" />,
+            url:"https://github.com/RaJharit77"
         },
         {
             name: 'Ocaml',
             role: 'Source Code',
             description: 'Open-source project',
-            icon: <Users className="h-6 w-6" />
+            icon: <Users className="h-6 w-6" />,
+            url: "https://github.com/RaJharit77/marina.git"
         }
     ]
 
