@@ -11,7 +11,7 @@ export default function AboutPage() {
             role: 'Front-end Developer',
             description: 'Creator of Marina SAT Solver Design',
             icon: <Code className="h-6 w-6" />,
-            url:"https://github.com/RaJharit77"
+            url: "https://github.com/RaJharit77"
         },
         {
             name: 'Ocaml',
@@ -132,12 +132,15 @@ export default function AboutPage() {
                 <h2 className="text-2xl font-bold mb-6">Team</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {team.map((member, index) => (
-                        <motion.div
+                        <motion.a
                             key={member.name}
+                            href={member.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 * index }}
-                            className="p-6 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary-500 transition-colors"
+                            className="p-6 border-2 border-gray-200 dark:border-gray-700 rounded-xl hover:border-primary-500 transition-colors block cursor-pointer hover:shadow-lg"
                         >
                             <div className="flex items-center space-x-4 mb-4">
                                 <div className="p-3 bg-linear-to-br from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 rounded-lg">
@@ -149,7 +152,7 @@ export default function AboutPage() {
                                 </div>
                             </div>
                             <p className="text-gray-700 dark:text-gray-300">{member.description}</p>
-                        </motion.div>
+                        </motion.a>
                     ))}
                 </div>
             </motion.div>
