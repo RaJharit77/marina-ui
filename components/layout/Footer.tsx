@@ -81,7 +81,7 @@ export default function Footer() {
                 <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="text-sm text-gray-500 dark:text-gray-400">
-                            <p>Marina SAT Solver - RaJharit77 © {currentYear}</p>
+                            <p>Marina SAT Solver - RaJharit77 © 2025 - {currentYear}</p>
                             <p className="mt-1">Based on IF-expression normalization technique</p>
                         </div>
                         <div className="flex items-center space-x-4">
